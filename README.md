@@ -139,6 +139,12 @@ $ ipcs
 <img width="1344" height="1170" alt="Os ex5" src="https://github.com/user-attachments/assets/2cc6e8bd-891c-43a3-82d2-76f926fcc69f" />
 
 
+$ ipcs
+
+
+<img width="1326" height="318" alt="op ex5" src="https://github.com/user-attachments/assets/656cbc72-2204-4fa2-ad98-b1e11d70e2d6" />
+
+
 
 
 # RESULT:
