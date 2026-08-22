@@ -22,47 +22,43 @@ Execute the C Program for the desired output.
 
 ## Write a C program that implements a producer-consumer system with two processes using Semaphores.
 
-/*
- * sem.c - Producer-Consumer using Semaphores
- */
-#include <stdio.h>      
-#include <stdlib.h>     
-#include <unistd.h>     
-#include <sys/types.h>  
-#include <sys/ipc.h>    
-#include <sys/sem.h>    
-#include <sys/wait.h>   
-#include <time.h>      
+  /*
+  * sem.c - Producer-Consumer using Semaphores
 
-#define NUM_LOOPS 10  // Number of producer-consumer cycles
 
-// Define union semun if not already available
-union semun {
+         #include <stdio.h>      
+         #include <stdlib.h>     
+         #include <unistd.h>     
+         #include <sys/types.h>  
+         #include <sys/ipc.h>    
+         #include <sys/sem.h>    
+         #include <sys/wait.h>   
+         #include <time.h>      
+         #define NUM_LOOPS 10  // Number of producer-consumer cycles
+         // Define union semun if not already available
+         union semun {
     int val;               
     struct semid_ds *buf;  
     unsigned short int *array; 
     struct seminfo *__buf;
-};
-
-// Function to wait (P operation) on semaphore
-void wait_semaphore(int sem_set_id) {
+    };
+    // Function to wait (P operation) on semaphore
+    void wait_semaphore(int sem_set_id) {
     struct sembuf sem_op;
     sem_op.sem_num = 0;
     sem_op.sem_op = -1;  // Decrease semaphore value (Wait)
     sem_op.sem_flg = 0;
     semop(sem_set_id, &sem_op, 1);
-}
-
-// Function to signal (V operation) on semaphore
-void signal_semaphore(int sem_set_id) {
+    }
+    // Function to signal (V operation) on semaphore
+    void signal_semaphore(int sem_set_id) {
     struct sembuf sem_op;
     sem_op.sem_num = 0;
     sem_op.sem_op = 1;  // Increase semaphore value (Signal)
     sem_op.sem_flg = 0;
     semop(sem_set_id, &sem_op, 1);
-}
-
-int main() {
+    }
+    int main() {
     int sem_set_id;
     union semun sem_val;
     int child_pid;
@@ -129,7 +125,8 @@ $ ipcs
 
 
 
-![Uploading Os ex5.png…]()
+<img width="1344" height="1170" alt="Os ex5" src="https://github.com/user-attachments/assets/2cc6e8bd-891c-43a3-82d2-76f926fcc69f" />
+
 
 
 
